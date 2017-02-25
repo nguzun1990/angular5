@@ -1,8 +1,17 @@
-<div class="panel-group">
-    <div class="panel panel-default">
-        <div class="panel-body">Panel Content</div>
+<div class="panel panel-default" [ngClass]="{'panel-success': car.brandName == 'Mercedes'}">
+    <div class="panel-heading">
+        {{car?.brandName}}
     </div>
-    <div class="panel panel-default">
-        <div class="panel-body">Panel Content</div>
+    <ul class="list-group">
+        <li class="list-group-item">Model: {{car?.model}}</li>
+        <li class="list-group-item" >
+            Engine capacity: {{car?.engineCap}}
+            <span *ngIf="car?.engineCap > 2000" class="label label-warning">Big Engine</span>
+        </li>
+    </ul>
+    <img class="detail-image" src="{{car?.image}}" alt="loading" />
+    <div class="panel-body">
+        <p>{{car?.description}}</p>
     </div>
 </div>
+

@@ -6,10 +6,8 @@ import { Car } from '../models/car.model';
     selector: 'detail-component',
     templateUrl: 'app/components/detail.component.html',
 })
-export class DetailComponent implements OnInit {
+export class DetailComponent {
 
-    //@Input('car') car: Car;
+    @Input('car') car: Car;
 
-    ngOnInit() {
-    }
 }

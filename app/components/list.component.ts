@@ -11,7 +11,14 @@ export class ListComponent implements OnInit {
 
     public cars: Array<Car>;
 
+    public selectedCar: Car;
+
     ngOnInit() {
         this.cars = CARS;
+        this.selectedCar = this.cars[0];
+    }
+
+    public onSelectCar(car: Car) {
+        this.selectedCar = car;
     }
 }
