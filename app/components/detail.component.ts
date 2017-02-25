@@ -10,4 +10,11 @@ export class DetailComponent {
 
     @Input('car') car: Car;
 
+    public addLikeToCar(event: any) {
+        if (!this.car.liked) {
+            this.car.likes++;
+            this.car.liked = true;
+        }        
+    }
+
 }
