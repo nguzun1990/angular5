@@ -1,0 +1,8 @@
+#Angular 2
+
+node_modules
+npm-debug.log
+app/**/*.js
+main.js
+!systemjs.config.js
+*.js.map
