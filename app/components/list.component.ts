@@ -1,15 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+const CARS = [
+    "Mercedes B180",
+    "Mercedes B200",
+    "Mercedes C200",
+    "Mercedes E220",
+    "Mercedes S180",
+    "BMW 520d"
+];
 
 @Component({
     selector: 'list-component',
-    template: `
-    <div class="list-group">
-        <a href="#" class="list-group-item">Mercedes B180</a>
-        <a href="#" class="list-group-item">Mercedes B200</a>
-        <a href="#" class="list-group-item">Mercedes C200</a>
-        <a href="#" class="list-group-item">Mercedes E200</a>
-        <a href="#" class="list-group-item">Mercedes E220</a>
-        <a href="#" class="list-group-item">Mercedes S180</a>
-    </div>`,
+    templateUrl: 'app/components/list.component.html',
 })
-export class ListComponent  { }
+export class ListComponent implements OnInit {
+
+    public cars: Array<string>;
+
+    ngOnInit() {
+        this.cars = CARS;
+    }
+}
