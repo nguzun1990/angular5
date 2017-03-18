@@ -7,6 +7,7 @@ import { DetailComponent } from "./components/detail.component";
 import { LikeComponent } from "./components/like.component";
 import { ZoomImageDirective } from './directives/zoomImage.directive';
 
+
 @NgModule({
   imports:      [ BrowserModule ],
   declarations: [

@@ -11,6 +11,7 @@
         </li>
     </ul>
     <img class="detail-image" src="{{car?.image}}" alt="loading" zoomImage/>
+
     <div class="panel-body">
         <p>{{car?.description}}</p>
         <like-component [liked] ="car?.liked" (likeEvent)="addLikeToCar($event)"></like-component>
