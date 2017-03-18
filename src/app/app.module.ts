@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ListComponent } from "./components/list.component";
 import { DetailComponent } from "./components/detail.component";
 
+
 @NgModule({
   imports:      [ BrowserModule ],
   declarations: [

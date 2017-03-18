@@ -1,3 +1,4 @@
+
 import { Component, OnInit, Input } from '@angular/core';
 import { Car } from '../models/car.model';
 
@@ -9,5 +10,4 @@ import { Car } from '../models/car.model';
 export class DetailComponent {
 
     @Input('car') car: Car;
-
 }
