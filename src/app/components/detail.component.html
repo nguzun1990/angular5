@@ -1,6 +1,7 @@
 <div class="panel panel-default" [ngClass]="{'panel-success': car.brandName == 'Mercedes'}">
     <div class="panel-heading">
-        {{car?.brandName}}
+        {{car?.brandName}} 
+        <span class="badge right">{{car?.likes}}</span>
     </div>
     <ul class="list-group">
         <li class="list-group-item">Model: {{car?.model}}</li>
@@ -12,6 +13,7 @@
     <img class="detail-image" src="{{car?.image}}" alt="loading" />
     <div class="panel-body">
         <p>{{car?.description}}</p>
+        <like-component [liked] ="car?.liked" (likeEvent)="addLikeToCar($event)"></like-component>
     </div>
 </div>
 

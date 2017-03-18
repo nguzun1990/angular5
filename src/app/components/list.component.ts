@@ -19,6 +19,5 @@ export class ListComponent implements OnInit {
 
     public onSelectCar(car: Car) {
         this.selectedCar = car;
-
     }
 }
