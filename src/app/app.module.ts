@@ -9,7 +9,6 @@ import { ListComponent } from "./components/list.component";
   imports:      [ BrowserModule ],
   declarations: [
                     AppComponent,
-
                     ListComponent
                 ],
 
