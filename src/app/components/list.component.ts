@@ -11,7 +11,7 @@ const CARS = [
 
 @Component({
     selector: 'list-component',
-    templateUrl: 'app/components/list.component.html',
+    templateUrl: 'list.component.html',
 })
 export class ListComponent implements OnInit {
 
