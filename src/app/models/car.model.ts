@@ -5,7 +5,7 @@ export class Car {
     description: string;
     image: string;
     engineCap: number;
-  
+
     constructor(id: number, brandName: string, model: string, description: string,  image: string, engineCap: number) {
         this.id = id;
         this.brandName = brandName;

@@ -1,19 +1,17 @@
 <div class="panel panel-default" [ngClass]="{'panel-success': car.brandName == 'Mercedes'}">
     <div class="panel-heading">
-        {{car?.brandName | uppercase }} 
-        <span class="badge right">{{car?.likes}}</span>
+        {{car?.brandName}}
     </div>
     <ul class="list-group">
         <li class="list-group-item">Model: {{car?.model}}</li>
         <li class="list-group-item" >
-            Engine capacity: {{car?.engineCap | cm3ToLiters }}
+            Engine capacity: {{car?.engineCap}}
             <span *ngIf="car?.engineCap > 2000" class="label label-warning">Big Engine</span>
         </li>
     </ul>
-    <img class="detail-image" src="{{car?.image}}" alt="loading" zoomImage/>
+    <img class="detail-image" src="{{car?.image}}" alt="loading" />
     <div class="panel-body">
         <p>{{car?.description}}</p>
-        <like-component [liked] ="car?.liked" (likeEvent)="addLikeToCar($event)"></like-component>
     </div>
 </div>
 
