@@ -6,6 +6,7 @@ import { ListComponent } from "./components/list.component";
 import { DetailComponent } from "./components/detail.component";
 import { LikeComponent } from "./components/like.component";
 import { ZoomImageDirective } from './directives/zoomImage.directive';
+import { Cm3ToLiters } from './pipes/cm3ToLiters.pipes';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ZoomImageDirective } from './directives/zoomImage.directive';
                     ListComponent,
                     DetailComponent,
                     LikeComponent,
-                    ZoomImageDirective
+                    ZoomImageDirective,
+                    Cm3ToLiters
   ],
   bootstrap:    [ AppComponent ]
 })

@@ -1,12 +1,14 @@
 <div class="panel panel-default" [ngClass]="{'panel-success': car.brandName == 'Mercedes'}">
     <div class="panel-heading">
-        {{car?.brandName}} 
+        {{car?.brandName | uppercase }} 
+
         <span class="badge right">{{car?.likes}}</span>
     </div>
     <ul class="list-group">
         <li class="list-group-item">Model: {{car?.model}}</li>
         <li class="list-group-item" >
-            Engine capacity: {{car?.engineCap}}
+            Engine capacity: {{car?.engineCap | cm3ToLiters }}
+
             <span *ngIf="car?.engineCap > 2000" class="label label-warning">Big Engine</span>
         </li>
     </ul>
