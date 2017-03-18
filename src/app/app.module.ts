@@ -6,6 +6,7 @@ import { ListComponent } from "./components/list.component";
 import { DetailComponent } from "./components/detail.component";
 import { LikeComponent } from "./components/like.component";
 
+
 @NgModule({
   imports:      [ BrowserModule ],
   declarations: [
@@ -13,6 +14,7 @@ import { LikeComponent } from "./components/like.component";
                     ListComponent,
                     DetailComponent,
                     LikeComponent
+
                 ],
   bootstrap:    [ AppComponent ]
 })

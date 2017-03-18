@@ -16,5 +16,4 @@ export class DetailComponent {
             this.car.liked = true;
         }        
     }
-
 }
