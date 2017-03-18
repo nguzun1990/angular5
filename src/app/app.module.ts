@@ -8,6 +8,7 @@ import { LikeComponent } from "./components/like.component";
 import { ZoomImageDirective } from './directives/zoomImage.directive';
 import { Cm3ToLiters } from './pipes/cm3ToLiters.pipes';
 
+
 @NgModule({
   imports:      [ BrowserModule ],
   declarations: [
