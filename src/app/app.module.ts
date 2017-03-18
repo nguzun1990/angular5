@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ListComponent } from "./components/list.component";
 import { DetailComponent } from "./components/detail.component";
 import { LikeComponent } from "./components/like.component";
+import { ZoomImageDirective } from './directives/zoomImage.directive';
 
 
 @NgModule({
@@ -13,9 +14,9 @@ import { LikeComponent } from "./components/like.component";
                     AppComponent,
                     ListComponent,
                     DetailComponent,
-                    LikeComponent
-
-                ],
+                    LikeComponent,
+                    ZoomImageDirective
+  ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

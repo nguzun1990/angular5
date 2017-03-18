@@ -10,7 +10,8 @@
             <span *ngIf="car?.engineCap > 2000" class="label label-warning">Big Engine</span>
         </li>
     </ul>
-    <img class="detail-image" src="{{car?.image}}" alt="loading" />
+    <img class="detail-image" src="{{car?.image}}" alt="loading" zoomImage/>
+
     <div class="panel-body">
         <p>{{car?.description}}</p>
         <like-component [liked] ="car?.liked" (likeEvent)="addLikeToCar($event)"></like-component>
