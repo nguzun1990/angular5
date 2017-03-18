@@ -3,7 +3,7 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'like-component',
-    templateUrl: 'app/components/like.component.html',
+    templateUrl: 'like.component.html',
 })
 export class LikeComponent {
     @Output() likeEvent = new EventEmitter();
