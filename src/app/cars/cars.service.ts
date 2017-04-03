@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core'
-
 import { Car } from './car.model';
 
 const CARS: Array<Car> = [
@@ -36,11 +35,7 @@ The Volkswagen Golf has won many awards throughout its history. The Volkswagen G
 @Injectable()
 export class CarsService {
 
-  constructor() {
-    console.info("Passed");
-  }
-
-  getCars() {
+  getCars(): Array<Car> {
     return CARS;
   }
 }
