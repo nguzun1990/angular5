@@ -1,6 +1,8 @@
-import { Car } from './../cars/car.model';
+import { Injectable } from '@angular/core'
 
-export const CARS: Array<Car> = [
+import { Car } from './car.model';
+
+const CARS: Array<Car> = [
     new Car(1, "Mercedes", "B200",
         `The Mercedes-Benz B-Class is a compact luxury car produced by German automaker Mercedes-Benz since 2005. Mercedes-Benz markets it as a sports compact tourer. It is similar to the A-Class, though bigger and with bigger engines. The European New Car Assessment Programme (Euro NCAP) classifies it as a small MPV (multi-purpose vehicle).[1] As of December 20, 2013, delivery of B-Class vehicles reached 1 million since the launch of the B-Class in 2005.`,
         "https://upload.wikimedia.org/wikipedia/commons/2/24/Mercedes-Benz_B-Class_2014.jpg",
@@ -29,3 +31,16 @@ The Volkswagen Golf has won many awards throughout its history. The Volkswagen G
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/2015_Volkswagen_Golf_%285G%29_103TSI_R-Line_5-door_hatchback_%282016-04-07%29_01.jpg/1920px-2015_Volkswagen_Golf_%285G%29_103TSI_R-Line_5-door_hatchback_%282016-04-07%29_01.jpg",
         1900, 10, false)
 ];
+
+
+@Injectable()
+export class CarsService {
+
+  constructor() {
+    console.info("Passed");
+  }
+
+  getCars() {
+    return CARS;
+  }
+}

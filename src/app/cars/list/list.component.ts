@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CARS } from './../../data/data';
+
 import { Car } from './../car.model';
+import { CarsService } from './../cars.service';
 
 @Component({
     selector: 'list-component',
@@ -9,11 +10,14 @@ import { Car } from './../car.model';
 export class ListComponent implements OnInit {
 
     public cars: Array<Car>;
-
     public selectedCar: Car;
 
+    constructor(
+        protected service: CarsService
+    ) {}
+
     ngOnInit() {
-        this.cars = CARS;
+        this.cars = this.service.getCars();
         this.selectedCar = this.cars[0];
     }
 
