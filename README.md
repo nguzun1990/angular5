@@ -1,1 +1,3 @@
-Readme file
+Refactoring, adding NgModules
+* CarsModule
+* SharedModule

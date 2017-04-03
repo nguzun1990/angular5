@@ -1,6 +1,5 @@
 import { Component, Output, Input, EventEmitter } from '@angular/core';
 
-
 @Component({
     selector: 'like-component',
     templateUrl: 'like.component.html',

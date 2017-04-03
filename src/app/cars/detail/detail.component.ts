@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Car } from '../models/car.model';
+import { Car } from './../car.model';
+import { LikeComponent } from './../../shared/like/like.component'
 
 
 @Component({

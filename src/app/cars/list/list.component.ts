@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CARS } from '../data/data';
-import { Car } from '../models/car.model';
+import { CARS } from './../../data/data';
+import { Car } from './../car.model';
 
 @Component({
     selector: 'list-component',
