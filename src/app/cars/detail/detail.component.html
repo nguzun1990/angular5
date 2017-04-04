@@ -17,6 +17,6 @@
     <div class="panel-body">
         <p>{{car?.description}}</p>
         <like-component [liked] ="car?.liked" (likeEvent)="addLikeToCar($event)"></like-component>
+        <a [routerLink]="['../', car.id, 'edit']" class="btn btn-primary">Edit</a>
     </div>
-    <a [routerLink]="['./../', 'detail', car.id]">One level up</a>
 </div>

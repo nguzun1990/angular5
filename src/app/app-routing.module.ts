@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { ListComponent as CarsListComponent } from './cars/list/list.component';
 import { DetailComponent as CarsDetailComponent } from './cars/detail/detail.component';
+import { EditComponent as CarsEditComponent } from './cars/edit/edit.component';
 import { NotFoundComponent } from './shared/notfound/notfound.component';
 
 const AppRoutes: Routes = [
@@ -20,6 +21,10 @@ const AppRoutes: Routes = [
     path: 'cars',
     component: CarsListComponent,
     children: [
+      {
+        path: ":id/edit",
+        component: CarsEditComponent
+      },
       {
         path: ":id",
         component: CarsDetailComponent
