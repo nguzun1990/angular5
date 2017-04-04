@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Car } from './../car.model';
 import { CarsService } from './../cars.service';
@@ -13,7 +14,8 @@ export class ListComponent implements OnInit {
     public selectedCar: Car;
 
     constructor(
-        protected service: CarsService
+        protected service: CarsService,
+        protected router: Router
     ) {}
 
     ngOnInit() {
@@ -22,6 +24,8 @@ export class ListComponent implements OnInit {
     }
 
     public onSelectCar(car: Car) {
-        this.selectedCar = car;
+        this.router.navigate(['cars', car.id]);
+        // this.selectedCar = car;
+
     }
 }

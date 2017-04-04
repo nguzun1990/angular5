@@ -1,4 +1,4 @@
-<div class="panel panel-default" [ngClass]="{'panel-success': car.brandName == 'Mercedes'}">
+<div class="panel panel-default" [ngClass]="{'panel-success': car?.brandName == 'Mercedes'}">
     <div class="panel-heading">
         {{car?.brandName | uppercase }} 
 
@@ -19,4 +19,3 @@
         <like-component [liked] ="car?.liked" (likeEvent)="addLikeToCar($event)"></like-component>
     </div>
 </div>
-

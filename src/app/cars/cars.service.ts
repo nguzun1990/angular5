@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core'
 import { Car } from './car.model';
 
+import { Observable } from 'rxjs/Rx'
+
 const CARS: Array<Car> = [
     new Car(1, "Mercedes", "B200",
         `The Mercedes-Benz B-Class is a compact luxury car produced by German automaker Mercedes-Benz since 2005. Mercedes-Benz markets it as a sports compact tourer. It is similar to the A-Class, though bigger and with bigger engines. The European New Car Assessment Programme (Euro NCAP) classifies it as a small MPV (multi-purpose vehicle).[1] As of December 20, 2013, delivery of B-Class vehicles reached 1 million since the launch of the B-Class in 2005.`,
@@ -37,5 +39,10 @@ export class CarsService {
 
   getCars(): Array<Car> {
     return CARS;
+  }
+
+  getCar(id: number): Observable<Car> {
+    let foundCars = CARS.filter(car => car.id === id)
+    return Observable.of(foundCars[0] ? foundCars[0] : null as Car)
   }
 }
