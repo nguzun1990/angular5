@@ -45,4 +45,9 @@ export class CarsService {
     let foundCars = CARS.filter(car => car.id === id)
     return Observable.of(foundCars[0] ? foundCars[0] : null as Car)
   }
+
+  updateCar(car: Car): Observable<Car> {
+      return Observable.of(car);
+    //   return Observable.throw("Some response");
+  }
 }

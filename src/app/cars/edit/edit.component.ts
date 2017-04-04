@@ -15,6 +15,8 @@ export class EditComponent implements OnInit {
     protected loading: boolean = true;
     protected formGroup: FormGroup;
     protected submitted: boolean = false;
+    protected successMsg: string = null;
+    protected errorMsg: string = null;
 
     constructor(
         protected service: CarsService,
@@ -31,11 +33,6 @@ export class EditComponent implements OnInit {
                 this.loading = false;
                 this.buildForm(car);
             });
-        this.formGroup.valueChanges
-            .map(values => values.brandName)
-            .subscribe(brandName => {
-                console.log(brandName)
-            })
     }
 
     buildForm(car: Car): void {
@@ -49,11 +46,41 @@ export class EditComponent implements OnInit {
     }
 
     onFormCancel() {
-        // this.formGroup.reset();
         this.router.navigate(['cars', this.car.id]);
     }
 
     onSubmit() { 
-        this.submitted = true; 
+        const saveCar = this.prepareCar();
+        this.service.updateCar(saveCar)
+            .map(carObj => new Car(
+                carObj.id, carObj.brandName, carObj.model,
+                carObj.description,
+                carObj.image, carObj.engineCap,
+                carObj.likes, carObj.liked
+            ))
+            .subscribe((car: Car) => {
+                this.car = car;
+                this.buildForm(car);
+                this.successMsg = "The car has been successfully saved!";
+            }, () => {
+                this.errorMsg = "There was an error during the saving process.";
+            })
+    }
+
+    prepareCar(): Car {
+        const formModel = this.formGroup.value;
+
+        const saveCar = {
+            id: this.car.id,
+            brandName: formModel.brandName as string,
+            model: formModel.model as string,
+            description: formModel.description,
+            image: formModel.image,
+            engineCap: formModel.engineCap,
+            likes: 0,
+            liked: false
+        }
+
+        return saveCar as Car;
     }
 }
