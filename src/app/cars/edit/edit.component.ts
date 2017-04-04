@@ -14,6 +14,7 @@ export class EditComponent implements OnInit {
     protected car: Car = null;
     protected loading: boolean = true;
     protected formGroup: FormGroup;
+    protected submitted: boolean = false;
 
     constructor(
         protected service: CarsService,
@@ -30,6 +31,11 @@ export class EditComponent implements OnInit {
                 this.loading = false;
                 this.buildForm(car);
             });
+        this.formGroup.valueChanges
+            .map(values => values.brandName)
+            .subscribe(brandName => {
+                console.log(brandName)
+            })
     }
 
     buildForm(car: Car): void {
@@ -45,5 +51,9 @@ export class EditComponent implements OnInit {
     onFormCancel() {
         // this.formGroup.reset();
         this.router.navigate(['cars', this.car.id]);
+    }
+
+    onSubmit() { 
+        this.submitted = true; 
     }
 }
