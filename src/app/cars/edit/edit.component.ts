@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
 
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Car } from './../car.model';
 import { CarsService } from './../cars.service';
@@ -18,7 +18,8 @@ export class EditComponent implements OnInit {
     constructor(
         protected service: CarsService,
         protected route: ActivatedRoute,
-        protected router: Router
+        protected router: Router,
+        protected fb: FormBuilder
     ) {}
 
     ngOnInit() {
@@ -27,22 +28,22 @@ export class EditComponent implements OnInit {
             .subscribe((car: Car) => {
                 this.car = car
                 this.loading = false;
-                this.formGroup = this.getCarForm(car);
+                this.buildForm(car);
             });
     }
 
-    getCarForm(car: Car): FormGroup {
-        return new FormGroup({
-            brandName: new FormControl(car.brandName, [Validators.required, Validators.minLength(2)]),
-            model: new FormControl(car.model, [Validators.required, Validators.minLength(2)]),
-            description: new FormControl(car.description, [Validators.required, Validators.minLength(10)]),
-            image: new FormControl(car.image, [Validators.required]),
-            engineCap: new FormControl(car.engineCap, [Validators.required])
+    buildForm(car: Car): void {
+        this.formGroup = this.fb.group({
+            brandName: [car.brandName, [Validators.required, Validators.minLength(2)]],
+            model: [car.model, [Validators.required, Validators.minLength(2)]],
+            description: [car.description, [Validators.required, Validators.minLength(10)]],
+            image: [car.image, [Validators.required]],
+            engineCap: [car.engineCap, [Validators.required]]
         });
     }
 
     onFormCancel() {
-        this.formGroup.reset();
+        // this.formGroup.reset();
         this.router.navigate(['cars', this.car.id]);
     }
 }
