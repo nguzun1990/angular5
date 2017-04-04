@@ -6,7 +6,7 @@ import { CarsService } from './../cars.service';
 
 @Component({
     selector: 'list-component',
-    templateUrl: 'list.component.html',
+    templateUrl: 'list.component.html'
 })
 export class ListComponent implements OnInit {
 
