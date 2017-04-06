@@ -8,7 +8,7 @@ export class Car {
     likes: number;
     liked: boolean;
 
-    constructor(id: number, brandName: string, model: string, description: string,  image: string, engineCap: number, likes: number, liked: boolean) {
+    constructor(id: number, brandName: string, model: string, description: string,  image: string, engineCap: number, likes: number, liked?: boolean) {
         this.id = id;
         this.brandName = brandName;
         this.model = model;
