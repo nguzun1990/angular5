@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { NotFoundComponent } from './shared/notfound/notfound.component';
 
+import { AuthGuard } from './shared/auth-guard.service'
+
 const AppRoutes: Routes = [
   {
     path: '',
@@ -12,7 +14,8 @@ const AppRoutes: Routes = [
   },
   {
     path: 'cars',
-    loadChildren: 'app/cars/cars.module.ts#CarsModule'
+    loadChildren: 'app/cars/cars.module.ts#CarsModule',
+    canLoad: [AuthGuard]
   },
   {
     path: 'dashboard',

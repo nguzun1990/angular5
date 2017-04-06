@@ -6,7 +6,7 @@ import { DashboardModule } from './dashboard/dashboard.module'
 import { SharedModule } from './shared/shared.module'
 
 import { AppRoutingModule } from './app-routing.module';
-// import { CarsModule } from './cars/cars.module'
+import { AuthGuard } from './shared/auth-guard.service'
 
 
 @NgModule({
@@ -15,10 +15,10 @@ import { AppRoutingModule } from './app-routing.module';
     HttpModule,
     DashboardModule,
     SharedModule,
-    // CarsModule,
     AppRoutingModule    
   ],
   declarations: [ AppComponent ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  providers: [AuthGuard]
 })
 export class AppModule { }
