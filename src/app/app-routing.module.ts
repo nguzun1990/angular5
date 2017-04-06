@@ -11,6 +11,10 @@ const AppRoutes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'cars',
+    loadChildren: 'app/cars/cars.module.ts#CarsModule'
+  },
+  {
     path: 'dashboard',
     component: DashboardComponent
   },

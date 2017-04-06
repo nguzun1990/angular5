@@ -6,7 +6,7 @@ import { DashboardModule } from './dashboard/dashboard.module'
 import { SharedModule } from './shared/shared.module'
 
 import { AppRoutingModule } from './app-routing.module';
-import { CarsModule } from './cars/cars.module'
+// import { CarsModule } from './cars/cars.module'
 
 
 @NgModule({
@@ -15,7 +15,7 @@ import { CarsModule } from './cars/cars.module'
     HttpModule,
     DashboardModule,
     SharedModule,
-    CarsModule,
+    // CarsModule,
     AppRoutingModule    
   ],
   declarations: [ AppComponent ],

@@ -6,9 +6,9 @@ import { DetailComponent } from './detail/detail.component';
 import { EditComponent } from './edit/edit.component';
 
 const CarsRoutes: Routes = [
-  { path: 'cars',  component: ListComponent },
-  { path: 'cars/:id', component: DetailComponent },
-  { path: 'cars/:id/edit', component: EditComponent }
+  { path: '',  component: ListComponent },
+  { path: ':id', component: DetailComponent },
+  { path: ':id/edit', component: EditComponent }
 ];
 
 @NgModule({
