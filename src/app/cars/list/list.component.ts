@@ -19,8 +19,11 @@ export class ListComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        this.cars = this.service.getCars();
-        this.selectedCar = this.cars[0];
+        this.service.getCars()
+            .subscribe(cars => {
+                this.cars = cars;
+                this.selectedCar = this.cars[0];
+            });
     }
 
     public onSelectCar(car: Car) {
