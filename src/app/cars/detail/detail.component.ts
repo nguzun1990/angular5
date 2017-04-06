@@ -5,7 +5,10 @@ import { Car } from './../car.model';
 import { LikeComponent } from './../../shared/like/like.component'
 import { CarsService } from './../cars.service';
 
+import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/distinct';
+import 'rxjs/add/operator/debounce';
 
 @Component({
     selector: 'detail-component',
@@ -14,7 +17,7 @@ import 'rxjs/add/operator/switchMap';
 export class DetailComponent implements OnInit {
 
     // @Input('car') car: Car;
-    protected car: Car = null;
+    protected car: Car;
 
     constructor(
         protected service: CarsService,
@@ -24,7 +27,9 @@ export class DetailComponent implements OnInit {
     ngOnInit() {
         this.route.params
             .switchMap((params: Params) => this.service.getCar(+params['id']))
-            .subscribe(car => this.car = car)
+            .subscribe(car => {
+                this.car = car;
+            })
     }
 
     public addLikeToCar(event: any) {
