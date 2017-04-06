@@ -3,16 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ListComponent } from './list/list.component';
 import { DetailComponent } from './detail/detail.component';
+import { EditComponent } from './edit/edit.component';
 
 const CarsRoutes: Routes = [
-  {
-    path: "",
-    component: ListComponent,
-  }
+  { path: 'cars',  component: ListComponent },
+  { path: 'cars/:id', component: DetailComponent },
+  { path: 'cars/:id/edit', component: EditComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule],
+  imports: [RouterModule.forChild(CarsRoutes)],
   exports: [RouterModule]
 })
 export class CarsRoutingModule {}
