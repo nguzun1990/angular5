@@ -18,5 +18,4 @@
         <p>{{car?.description}}</p>
         <like-component [liked] ="car?.liked" (likeEvent)="addLikeToCar($event)"></like-component>
     </div>
-    <a [routerLink]="['./../', 'detail', car.id]">One level up</a>
 </div>
