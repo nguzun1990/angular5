@@ -16,16 +16,16 @@ const AppRoutes: Routes = [
     path: 'dashboard',
     component: DashboardComponent
   },
-  {
-    path: 'cars',
-    component: CarsListComponent,
-    children: [
-      {
-        path: ":id",
-        component: CarsDetailComponent
-      }
-    ]
-  },
+  // {
+  //   path: 'cars',
+  //   component: CarsListComponent,
+  //   children: [
+  //     {
+  //       path: ":id",
+  //       component: CarsDetailComponent
+  //     }
+  //   ]
+  // },
   {
     path: '**',
     component: NotFoundComponent
