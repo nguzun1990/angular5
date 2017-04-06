@@ -28,11 +28,18 @@ export class EditComponent implements OnInit {
     ngOnInit() {
         this.route.paramMap
             .switchMap(paramMap => this.service.getCar(+paramMap.get("id")))
-            .subscribe((car: Car) => {
+            .switchMap((car: Car) => {
                 this.car = car
                 this.loading = false;
                 this.buildForm(car);
+
+                return this.formGroup.valueChanges
+                    .map(values => values.brandName);
+            })
+            .subscribe(brandName => {
+                console.log(brandName)
             });
+
     }
 
     buildForm(car: Car): void {

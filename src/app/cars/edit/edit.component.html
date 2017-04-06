@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-default" *ngIf="formGroup">
     <div class="panel-heading">Edit car - <strong>{{ car?.carFullName() }}</strong></div>
     <div class="panel-body">
         <form class="form-horizontal" (ngSubmit)="onSubmit()" novalidate [formGroup]="formGroup">
