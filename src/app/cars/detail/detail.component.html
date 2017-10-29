@@ -17,6 +17,10 @@
     <div class="panel-body">
         <p>{{car?.description}}</p>
         <like-component [liked] ="car?.liked" (likeEvent)="addLikeToCar($event)"></like-component>
+        <button class="btn btn-default" (click)="navigateToEdit()">Edit this car</button>
+        
+    </div>
+    <div>
     </div>
 </div>
 

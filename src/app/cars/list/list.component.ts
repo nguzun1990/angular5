@@ -1,23 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { CARS } from './../../data/data';
-import { Car } from './../car.model';
+import { CarsService } from './../cars.service'; 
 
 @Component({
-    selector: 'list-component',
-    templateUrl: 'list.component.html',
+  selector: 'cars-list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
 
-    public cars: Array<Car>;
+  public cars;
+  constructor( private service: CarsService ) { }
 
-    public selectedCar: Car;
+  ngOnInit() {
+    this.service.getCars()
+      .subscribe(cars => this.cars = cars);
+  }
 
-    ngOnInit() {
-        this.cars = CARS;
-        this.selectedCar = this.cars[0];
-    }
-
-    public onSelectCar(car: Car) {
-        this.selectedCar = car;
-    }
 }

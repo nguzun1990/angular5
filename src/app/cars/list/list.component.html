@@ -1,9 +1,8 @@
-<div class="col-md-3">
-    <div class="list-group">
-        <a href="#" class="list-group-item" *ngFor="let car of cars"
-           (click)="onSelectCar(car)">{{car.carFullName()}}</a>
-    </div>
-</div>
-<div class="col-md-9">
-    <detail-component [car]="selectedCar"></detail-component>
-</div>
+<table class="table table-bordered">
+  <tr *ngIf="cars.length === 0">
+    <td>The cars array is empty</td>
+  </tr>
+  <tr *ngFor="let car of cars">
+    <td><a [routerLink]="[car.id]">{{ car.brandName }}</a></td>
+  </tr>
+</table>
