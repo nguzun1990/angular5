@@ -1,7 +1,10 @@
-<table class="table table-bordered">
-  <tr *ngIf="cars.length === 0">
-    <td>The cars array is empty</td>
-  </tr>
+<div *ngIf="err" class="alert alert-danger">
+  Backend error
+</div>
+<div *ngIf="cars.length === 0 && !loading" class="alert alert-info">
+  The cars array is empty
+</div>
+<table *ngIf="!err" class="table table-bordered">
   <tr *ngFor="let car of cars">
     <td><a [routerLink]="[car.id]">{{ car.brandName }}</a></td>
   </tr>

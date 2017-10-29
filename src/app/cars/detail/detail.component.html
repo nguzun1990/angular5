@@ -1,7 +1,8 @@
-<div class="panel panel-default" [ngClass]="{'panel-success': car.brandName == 'Mercedes'}">
+<div class="" *ngIf="loading">Loading...</div>
+<div class="alert alert-danger" *ngIf="err">Backend error</div>
+<div *ngIf="!loading && car !== null" class="panel panel-default" [ngClass]="{'panel-success': car?.brandName == 'Mercedes'}">
     <div class="panel-heading">
         {{car?.brandName | uppercase }} 
-
         <span class="badge right">{{car?.likes}}</span>
     </div>
     <ul class="list-group">

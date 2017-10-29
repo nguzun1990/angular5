@@ -1,4 +1,7 @@
-<form novalidate class="form-horizontal" (ngSubmit)="onSubmit()" #carForm="ngForm">
+<div class="" *ngIf="loading">Loading...</div>
+<div class="alert alert-danger" *ngIf="err">Backend error</div>
+
+<form *ngIf="!loading && !err" novalidate class="form-horizontal" (ngSubmit)="onSubmit()" #carForm="ngForm">
   <div class="form-group">
     <label for="brandName" class="col-sm-2 control-label">Brand name</label>
     <div class="col-sm-10">

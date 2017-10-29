@@ -15,7 +15,9 @@ import 'rxjs/add/operator/switchMap';
 export class DetailComponent {
 
     // @Input('car') car: Car;
-    public car: Car;
+    public car: Car = null;
+    public loading: boolean = true;
+    public err: any = null;
 
     constructor(
         private router: Router,
@@ -26,19 +28,25 @@ export class DetailComponent {
         this.route.paramMap
             .switchMap(params => this.service.getCar(+params.get('id')))
             .subscribe(
-                car => this.car = car, 
-                err => console.error("BACKEND RETURNED ERROR"), 
-                () => console.log("Done")
+                car => { 
+                    this.car = car; 
+                    this.loading = false;
+                }, 
+                err => {
+                    this.err = err;
+                    this.loading = false
+                }
             );
     }
 
     navigateToEdit() {
         this.router.navigate([ 'cars', this.car.id, 'edit' ]);
     }
-    // public addLikeToCar(event: any) {
-    //     if (!this.car.liked) {
-    //         this.car.likes++;
-    //         this.car.liked = true;
-    //     }        
-    // }
+
+    public addLikeToCar(event: any) {
+        if (!this.car.liked) {
+            this.car.likes++;
+            this.car.liked = true;
+        }        
+    }
 }

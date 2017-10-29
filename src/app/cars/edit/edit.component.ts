@@ -11,7 +11,9 @@ import { Car } from '../car.model';
 export class EditComponent implements OnInit {
 
   brands:Array<string> = ["Mercedes", "BMW", "Toyota"];
-  car: Car;
+  public car: Car = null;
+  public loading: boolean = true;
+  public err: any = null;
 
   constructor(
     private service: CarsService,
@@ -21,7 +23,14 @@ export class EditComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap
       .switchMap(params => this.service.getCar(+params.get('id')))
-      .subscribe(car => this.car = car);
+      .subscribe(car => {
+        this.car = car;
+        this.loading = false
+      },
+        err => {
+          this.err = err;
+          this.loading = false;
+        });
   }
 
   onSubmit() {

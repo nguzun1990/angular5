@@ -8,12 +8,19 @@ import { CarsService } from './../cars.service';
 })
 export class ListComponent implements OnInit {
 
-  public cars;
+  public cars: Array<any> = [];
+  public err: any = null;
+  public loading: boolean = true;
+  
   constructor( private service: CarsService ) { }
 
   ngOnInit() {
     this.service.getCars()
-      .subscribe(cars => this.cars = cars);
+      .subscribe(
+        cars => this.cars = cars,
+        err => this.err = err,
+        () => this.loading = false
+      );
   }
 
 }
