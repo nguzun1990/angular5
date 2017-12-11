@@ -12,7 +12,6 @@ export class LikeComponent {
 
     public emitEvent() {
         this.likeEvent.emit("addLike");
-        this.liked = true;
     }
 
 }

@@ -11,6 +11,7 @@ export class DetailComponent {
     @Input('car') car: Car;
 
     public addLikeToCar(event: any) {
+        console.log("Event value is ", event);
         if (!this.car.liked) {
             this.car.likes++;
             this.car.liked = true;
