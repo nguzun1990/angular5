@@ -14,7 +14,7 @@ const AppRoutes: Routes = [
   },
   {
     path: 'cars',
-    loadChildren: 'app/cars/cars.module.ts#CarsModule',
+    loadChildren: 'app/cars/cars.module#CarsModule',
     canLoad: [AuthGuard]
   },
   {
