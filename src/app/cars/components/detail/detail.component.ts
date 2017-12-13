@@ -1,23 +1,33 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Car } from './../../models/car.model';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
+import 'rxjs/add/operator/switchMap';
+import { CarsService } from 'app/cars/cars.service';
 
 @Component({
     selector: 'detail-component',
-    templateUrl: 'detail.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    templateUrl: 'detail.component.html'
+    // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DetailComponent {
 
-    @Input('car') car: Car;
+    car: Car;
 
-    constructor(private ref: ChangeDetectorRef) {
-        //setInterval(() => {
-        //    this.car.likes++;
-        //    console.log(this.car.likes);
-        //    // the following is required, otherwise the view will not be updated
-        //    this.ref.markForCheck();
-        //}, 1000);
+    constructor(
+        private activatedRoute: ActivatedRoute,
+        private service: CarsService
+    ) {
+    }
+
+    ngOnInit() {
+        this.activatedRoute.paramMap
+            .switchMap((params: ParamMap) => this.service.getCar(+params.get('id')))
+            .subscribe(car => 
+                {
+                    debugger;
+                    this.car = car
+                });
     }
 
     public addLikeToCar(event: any) {

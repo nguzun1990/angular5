@@ -13,6 +13,7 @@
     <img class="detail-image" src="{{car?.image}}" alt="loading" zoomImage/>
     <div class="panel-body">
         <p>{{car?.description}}</p>
+        <a routerLink="./../" class="btn btn-default">Back</a>
         <like-component [liked] ="car?.liked" (likeEvent)="addLikeToCar($event)"></like-component>
     </div>
 </div>
