@@ -11,11 +11,12 @@ import { DetailComponent } from './components/detail/detail.component';
 import { Cm3ToLiters } from './pipes/cm3ToLiters.pipes';
 
 import { CarsService } from './cars.service';
+import { EditComponent } from 'app/cars/components/edit/edit.component';
 
 @NgModule({
     imports: [ CommonModule, HttpClientModule, CarsRoutingModule, SharedModule ],
-    declarations: [ ListComponent, DetailComponent, Cm3ToLiters],
-    exports: [ ListComponent ],
+    declarations: [ ListComponent, DetailComponent, Cm3ToLiters, EditComponent],
+    exports: [ ListComponent],
     providers: [ CarsService ]
 })
 export class CarsModule {}

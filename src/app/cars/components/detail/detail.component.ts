@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Car } from './../../models/car.model';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
@@ -10,9 +10,10 @@ import { CarsService } from 'app/cars/cars.service';
     templateUrl: 'detail.component.html'
     // changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DetailComponent {
+export class DetailComponent implements OnDestroy {
 
     car: Car;
+    paramsMapSubscriber;
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -21,13 +22,17 @@ export class DetailComponent {
     }
 
     ngOnInit() {
-        this.activatedRoute.paramMap
+        this.paramsMapSubscriber = this.activatedRoute.paramMap
             .switchMap((params: ParamMap) => this.service.getCar(+params.get('id')))
             .subscribe(car => 
                 {
                     debugger;
                     this.car = car
                 });
+    }
+
+    ngOnDestroy() {
+        this.paramsMapSubscriber.unsubscribe();
     }
 
     public addLikeToCar(event: any) {

@@ -3,6 +3,7 @@ import { RouterModule, Route } from '@angular/router';
 
 import { HomeComponent } from './home/home/home.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import { AuthGuard } from 'app/core/auth-guard.service';
 
 
 const routes: Route[] = [{
@@ -10,6 +11,11 @@ const routes: Route[] = [{
     redirectTo: 'home',
     pathMatch: 'full'
   }, {
+    path: 'cars',
+    loadChildren: 'app/cars/cars.module#CarsModule',
+    canLoad: [AuthGuard]
+  },
+  {
     path: 'home',
     component: HomeComponent
   }, {
@@ -18,7 +24,7 @@ const routes: Route[] = [{
   }];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, { enableTracing: true })],
     exports: [RouterModule]
 })
 export class AppRoutingModule {}
