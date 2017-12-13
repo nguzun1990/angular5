@@ -1,0 +1,19 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+
+import { SharedModule } from './../shared/shared.module';
+
+import { ListComponent } from './components/list/list.component';
+import { DetailComponent } from './components/detail/detail.component';
+import { Cm3ToLiters } from './pipes/cm3ToLiters.pipes';
+
+import { CarsService } from './cars.service';
+
+@NgModule({
+    imports: [ CommonModule, HttpClientModule, SharedModule ],
+    declarations: [ ListComponent, DetailComponent, Cm3ToLiters],
+    exports: [ ListComponent ],
+    providers: [ CarsService ]
+})
+export class CarsModule {}
