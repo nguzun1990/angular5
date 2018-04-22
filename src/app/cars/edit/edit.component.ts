@@ -26,7 +26,7 @@ export class EditComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        this.route.paramMap
+        this.route.parent.paramMap
             .switchMap(paramMap => this.service.getCar(+paramMap.get("id")))
             .switchMap((car: Car) => {
                 this.car = car
