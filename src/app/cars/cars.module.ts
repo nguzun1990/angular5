@@ -12,11 +12,12 @@ import { DetailComponent } from './detail/detail.component';
 import { EditComponent } from './edit/edit.component';
 
 import { Cm3ToLiters } from './cm3ToLiters.pipes';
+import { DetailsOutletComponent } from './details-outlet/details-outlet.component';
 
 
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, SharedModule, CarsRoutingModule],
-  declarations: [ListComponent, DetailComponent, EditComponent, Cm3ToLiters],
+  declarations: [ListComponent, DetailComponent, EditComponent, Cm3ToLiters, DetailsOutletComponent],
   exports: [ListComponent],
   providers: [CarsService]
 
