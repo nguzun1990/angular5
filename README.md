@@ -1,4 +1,1 @@
-Refactoring 
-- adding cars.service.ts
-- adding the config provider API_URL in SharedModule
-- adding Observables
+- Setup an input field for observables support
