@@ -8,29 +8,27 @@ import { CarsService } from './../cars.service';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-    selector: 'detail-component',
-    templateUrl: 'detail.component.html'
+  selector: 'detail-component',
+  templateUrl: 'detail.component.html'
 })
 export class DetailComponent implements OnInit {
 
-    // @Input('car') car: Car;
-    protected car: Car = null;
+  // @Input('car') car: Car;
+  protected car: Car = null;
 
-    constructor(
-        protected service: CarsService,
-        protected route: ActivatedRoute
-    ) {}
+  constructor(
+    protected service: CarsService,
+    protected route: ActivatedRoute
+  ) { }
 
-    ngOnInit() {
-        this.route.params
-            .switchMap((params: Params) => this.service.getCar(+params['id']))
-            .subscribe(car => this.car = car)
+  ngOnInit() {
+    this.route.data.subscribe((data:any) => this.car = data.car);
+  }
+
+  public addLikeToCar(event: any) {
+    if (!this.car.liked) {
+      this.car.likes++;
+      this.car.liked = true;
     }
-
-    public addLikeToCar(event: any) {
-        if (!this.car.liked) {
-            this.car.likes++;
-            this.car.liked = true;
-        }        
-    }
+  }
 }
