@@ -11,31 +11,33 @@ import 'rxjs/add/operator/distinct';
 import 'rxjs/add/operator/debounce';
 
 @Component({
-    selector: 'detail-component',
-    templateUrl: 'detail.component.html'
+  selector: 'detail-component',
+  templateUrl: 'detail.component.html'
 })
 export class DetailComponent implements OnInit {
 
-    // @Input('car') car: Car;
-    protected car: Car;
+  protected car: Car;
 
-    constructor(
-        protected service: CarsService,
-        protected route: ActivatedRoute
-    ) {}
+  constructor(
+    protected service: CarsService,
+    protected route: ActivatedRoute
+  ) { }
 
-    ngOnInit() {
-        this.route.params
-            .switchMap((params: Params) => this.service.getCar(+params['id']))
-            .subscribe(car => {
-                this.car = car;
-            })
+  ngOnInit() {
+    this.route.data.subscribe((data:Object) => {
+      this.car = data['car']
+    });
+    // this.route.params
+    //   .switchMap((params: Params) => this.service.getCar(+params['id']))
+    //   .subscribe(car => {
+    //     this.car = car;
+    //   })
+  }
+
+  public addLikeToCar(event: any) {
+    if (!this.car.liked) {
+      this.car.likes++;
+      this.car.liked = true;
     }
-
-    public addLikeToCar(event: any) {
-        if (!this.car.liked) {
-            this.car.likes++;
-            this.car.liked = true;
-        }        
-    }
+  }
 }

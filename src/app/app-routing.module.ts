@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { NotFoundComponent } from './shared/notfound/notfound.component';
+import { FeedsComponent } from './shared/feeds/feeds.component';
 
 const AppRoutes: Routes = [
   {
@@ -12,8 +13,18 @@ const AppRoutes: Routes = [
   },
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
+    data: { pageTitle: "Homepage" }
   },
+  {
+    path: 'feeds',
+    component: FeedsComponent,
+    outlet: 'feeds'
+  },
+  // { 
+  //   path: 'cars', 
+  //   loadChildren: 'app/cars/cars.module#CarsModule'
+  // },
   {
     path: '**',
     component: NotFoundComponent
@@ -26,4 +37,4 @@ const AppRoutes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

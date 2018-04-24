@@ -8,6 +8,8 @@
           <ul class="nav navbar-nav">
               <li routerLinkActive="active"><a routerLink="dashboard">Dashboard</a></li>
               <li routerLinkActive="active"><a routerLink="cars">Cars</a></li>
+              <li routerLinkActive="active"><a [routerLink]="[{ outlets: { feeds: ['feeds'] } }]">Feeds</a></li>
+              <li><a [routerLink]="[{ outlets: { feeds: null } }]">No Feeds</a></li>
           </ul>
         </div>
 

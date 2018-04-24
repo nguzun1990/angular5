@@ -1,9 +1,9 @@
 <div class="col-md-3">
-    <div class="list-group">
-        <a class="list-group-item" *ngFor="let car of cars"
-           [routerLink]="['/cars', car.id]">{{car.carFullName()}}</a>
-    </div>
+  <div class="list-group">
+    <a class="list-group-item" *ngFor="let car of cars" [routerLink]="['/cars', car.id]">{{car.carFullName()}}</a>
+  </div>
+  <a routerLink="./">Back</a>
 </div>
 <div class="col-md-9">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
