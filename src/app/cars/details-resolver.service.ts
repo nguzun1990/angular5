@@ -15,12 +15,16 @@ export class CarDetailsResolver implements Resolve<Car> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):Observable<Car> {
     let id = +route.paramMap.get('id');
 
-    return this.carsService.getCar(id)
+    return this.carsService.getCar(2144)
       .take(1)
       .map(car => {
         if(car) return car;
         this.router.navigate(['dashboard', {message: "Car not found"}]);
         return null;
+      })
+      .catch(err => {
+        this.router.navigate(['dashboard', {message: "Car not found"}]);
+        return Observable.of(null);
       })
   }
 }
